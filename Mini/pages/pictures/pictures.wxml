@@ -1,0 +1,19 @@
+<!--pages/pictures/pictures.wxml-->
+<!-- <text>pages/pictures/pictures.wxml</text> -->
+<import src="../../we-cropper/dist/we-cropper.wxml"/>
+
+<view class="cropper-wrapper">
+  <template is="we-cropper" data="{{...cropperOpt}}"/>
+  <view class="cropper-buttons">
+    <button
+      class="upload"
+      bindtap="uploadImage">
+      选择图片
+    </button>
+    <button
+      class="getCropperImage"
+      bindtap="getCropperImage">
+      检测结果
+    </button>
+  </view>
+</view>

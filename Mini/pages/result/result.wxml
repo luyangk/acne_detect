@@ -1,0 +1,20 @@
+<!--pages/result/result.wxml-->
+<import src="../../we-cropper/dist/we-cropper.wxml"/>
+
+<view class="container">
+  <view class="result-picture">
+    <image class="result-picture-image"src="{{src}}"></image>
+  </view>
+  <view class="result">
+  <text class="acne-result">
+  {{result}}
+  </text>
+  </view>
+  <view class="go-back">
+    <button
+      class="go-back-to-pictures"
+      bindtap="goBackToPictures">
+      重新检测
+    </button>
+  </view>
+</view>

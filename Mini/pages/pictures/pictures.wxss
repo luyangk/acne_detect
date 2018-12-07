@@ -1,0 +1,14 @@
+/* pages/pictures/pictures.wxss */
+.upload {
+  width: 90%;
+  margin-top: 30rpx;
+  background-color: rgb(255, 0, 0);
+  color: #FFF;
+}
+
+.getCropperImage {
+  width: 90%;
+  margin-top: 30rpx;
+  background-color: rgb(255, 0, 0);
+  color: #FFF;
+}

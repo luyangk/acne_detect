@@ -1,0 +1,18 @@
+/* pages/result/result.wxss */
+.result-picture-image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.acne-result {
+  align-items: center;
+}
+.go-back {
+  width: 300rpx;
+}
+.go-back-to-pictures {
+  width: 90%;
+  margin-top: 30rpx;
+  background-color: rgb(255, 0, 0);
+  color: #FFF;
+}
