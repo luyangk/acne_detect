@@ -4,6 +4,9 @@ Data/*
 Server/venv/*
 Server/.idea/*
 
+Server/server.crt
+Server/server.key
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

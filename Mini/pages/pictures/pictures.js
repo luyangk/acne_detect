@@ -141,6 +141,52 @@ Page({
           urls: [src]
         })
         */
+        wx.showToast({
+          icon: 'loading',
+          title: 'uploading'
+        })
+        const uploadTask = wx.uploadFile({
+          url: 'https://luccalu.top/upload/',
+          filePath: src,
+          name: 'file',
+          //header: { "Content-Type": "multipart/form-data" },
+          //formData: { 'session_token': wx.getStorageSync('session_token') },
+          success: function (res) {
+            console.log(res)
+            if (res.statusCode != 200) {
+              wx.showModal({
+                title: 'Notice',
+                content: 'Failed to upload',
+                showCancel: false
+              })
+              return
+            }
+            var data = res.data
+            /*
+            page.setData({
+              src: path[0]
+            })
+            */
+          },
+          fail: function (e) {
+            console.log(e)
+            wx.showModal({
+              title: 'Notice',
+              content: 'Failed to upload',
+              showCancel: false
+            })
+          },
+          complete: function () {
+            wx.hideToast()
+          }
+        })
+
+        uploadTask.onProgressUpdate((res) => {
+          console.log('upload process: ', res.progress)
+          console.log('uploaded data len: ', res.totalBytesWritten)
+          console.log('expect total data len: ', res.totalBytesExpectedToWrite)
+        })
+
         const tempUrl = '../result/result?src=' + src
         console.log(`go to result: ${tempUrl}`)
         wx.navigateTo({
