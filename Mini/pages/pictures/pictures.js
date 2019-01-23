@@ -15,7 +15,7 @@ Page({
       id: 'cropper',
       width,
       height,
-      scale: 2.5,
+      scale: 50,
       zoom: 8,
       cut: {
         x: (width - 200) / 2,
@@ -141,15 +141,16 @@ Page({
           urls: [src]
         })
         */
+        var result
         wx.showToast({
           icon: 'loading',
           title: 'uploading'
         })
         const uploadTask = wx.uploadFile({
-          url: 'https://luccalu.top/upload/',
+          url: 'https://luccalu.top/upload',
           filePath: src,
           name: 'file',
-          //header: { "Content-Type": "multipart/form-data" },
+          header: { "Content-Type": "multipart/form-data" },
           //formData: { 'session_token': wx.getStorageSync('session_token') },
           success: function (res) {
             console.log(res)
@@ -167,6 +168,26 @@ Page({
               src: path[0]
             })
             */
+            console.log(data)
+            console.log(data.substring(0,7))
+            console.log(data.substring(8))
+            if (data.substring(0,7) == "Success") {
+              if (data.substring(8) == "white") {
+                result = "yes"
+                console.log(result)
+              } else {
+                result = "no"
+              }
+            } else {
+              result = "no"
+            }
+            console.log(result)
+            const tempUrl = '../result/result?src=' + src + '&resultflag=' + result
+            console.log(`go to result: ${tempUrl}`)
+            wx.navigateTo({
+              //url: '../logs/logs'
+              url: tempUrl
+            })
           },
           fail: function (e) {
             console.log(e)
@@ -187,12 +208,7 @@ Page({
           console.log('expect total data len: ', res.totalBytesExpectedToWrite)
         })
 
-        const tempUrl = '../result/result?src=' + src
-        console.log(`go to result: ${tempUrl}`)
-        wx.navigateTo({
-          //url: '../logs/logs'
-          url: tempUrl
-        })
+        
       } else {
         console.log(`Fail to get picture path!`)
       }

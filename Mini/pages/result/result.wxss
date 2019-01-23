@@ -6,6 +6,7 @@
 
 .acne-result {
   align-items: center;
+  font-size: 50rpx;
 }
 .go-back {
   width: 300rpx;

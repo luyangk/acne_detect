@@ -14,9 +14,19 @@ Page({
    */
   onLoad: function (options) {
     console.log(`options.src: ${options.src}`)
-    this.setData({
-      src: options.src
-    })
+    console.log(`options.resultflag: ${options.resultflag}`)
+    if (options.resultflag == "yes") {
+      this.setData({
+        src: options.src,
+        result: '推荐使用3M痘痘贴'  
+      })
+    } else {
+      this.setData({
+        src: options.src,
+        result: '您可以再等几天使用3M痘痘贴'
+      })
+    }
+    
   },
 
   /**
@@ -66,5 +76,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  goBackToPictures() {
+    wx.navigateTo({
+      //url: '../logs/logs'
+      url: '../pictures/pictures'
+    })
   }
 })
